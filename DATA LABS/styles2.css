@@ -1,0 +1,29 @@
+
+.sub-lab-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0;
+    display: none; /* Hide sub-lab buttons by default */
+}
+
+.sub-lab-list li {
+    margin: 5px 0;
+}
+
+.sub-lab-list a {
+    display: block;
+    padding: 8px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sub-lab-list a:hover {
+    background-color: #218838;
+}
+
+.hidden {
+    display: none;
+}
