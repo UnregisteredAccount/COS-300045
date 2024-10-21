@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Data Visualisation"/>
+    <meta name="keywords"    content="HTML, CSS, D3"/>
+    <meta name="author"      content="Your name here"/>
+
+    <title>Task 2.2 D3 Data Binding</title>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<div class="button-container">
+    <button onclick="window.location.href='lab2.1.html'">Lab 2.1</button>
+    <button onclick="window.location.href='lab2.2.html'">Lab 2.2</button>
+    <button onclick="window.location.href='lab2.3.html'">Lab 2.3</button>
+    <button onclick="window.location.href='lab2.4.html'">Lab 2.4</button>
+</div>
+
+<body>
+    <h1>The D3 Journey starts here ... </h1> 
+
+    <script>
+        var w = 500;
+        var h = 100;
+        var barPadding = 1;
+        var dataset = [14, 5, 26, 23, 9];
+        
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+        svg.selectAll("rect")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("x", function(d, i) {
+                return i * (w / dataset.length);
+            })
+            .attr("y", function(d) {
+                return h - (d * 4);
+            })
+            .attr("width", (w / dataset.length) - barPadding)
+            .attr("height", function(d) {
+                return d * 4;
+            })
+            .attr("fill", "teal");
+
+        svg.selectAll("text")
+            .data(dataset)
+            .enter()
+            .append("text")
+            .text(function(d) {
+                return d;
+            })
+            .attr("fill", "black")
+            .attr("x", function(d, i) {
+                return i * (w / dataset.length) + 16;
+            })
+            .attr("y", function(d) {
+                return h - (d * 4) + 15;
+            });
+    </script>
+
+    <br>
+    <br>
+    <footer style="color:grey">COS30045 Data Visualisation<br>
+    Gian Tze Ee</footer>
+</body>
+
+</html>

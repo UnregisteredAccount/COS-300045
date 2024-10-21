@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Data Visualisation Exercise 1"/>
+    <meta name="keywords" content="HTML, CSS"/>
+    <meta name="author" content="Your name here"/>
+
+    <title>Task 1.1 HTML and CSS Demo Page</title>
+    <!--Linking the external CSS file-->
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+
+<script>
+    function changeImage(imageNumber) {
+        const image = document.getElementById("mainImage");
+        const caption = document.getElementById("imageCaption");
+
+        if (imageNumber === 1) {
+            image.src ="chart.png";
+            image.alt = "chart1";
+            caption.textContent = "Adopt a Dog";
+        } else if (imageNumber === 2) {
+            image.src = "chart2.png";
+            image.alt = "chart2";
+            caption.textContent = "Adopt a Fish";
+        } else if (imageNumber === 3) {
+            image.src = "chart3.png";
+            image.alt = "chart3";
+            caption.textContent = "Adopt a Cat";
+        }
+    }
+</script>
+
+<div class="button-container">
+    <button onclick="window.location.href='lab1.1.html'">Lab 1.1</button>
+    <button onclick="window.location.href='lab1.2.html'">Lab 1.2</button>
+    <button onclick="window.location.href='lab1.3.html'">Lab 1.3</button>
+</div>
+
+<body>
+
+    
+
+    <h1>Title of Article about Interesting Visualisation</h1>
+    <h2>Author of Interesting Article</h2>
+    <p>Pets and the Pandemic</p>
+
+    <p>A report from Animal Medicines Australia (AMA) has found that many <strong>Australians</strong> took the opportunity to introduce a pet into their household during the pandemic. Their survey indicated that there was a significant increase in the percent of households taking in a new dog, fish or bird. Their research also indicated that pets had a number of <em>positive influences</em> on their lives such as:</p>
+
+    <ul>
+        <li>companionship</li>    
+        <li>better mental health</li>
+        <li>joy and happiness.</li>
+    </ul>
+
+    <p>With the increase in pet ownership, the AMA is encouraging policymakers to consider the needs of companion animals and their owners when considering rental, strata, and body corporate regulations, as well as accepting animals in public places and transport.</p>
+    <img src="pet_ownership_in_australia_table.png" alt="Pet Ownership in Australia" height="500" width="500">
+
+
+    <div class="button-container">
+        <button onclick="changeImage(1)">Household Penetration</button>
+        <button onclick="changeImage(2)">Adoption in 2019</button>
+        <button onclick="changeImage(3)">Adoption in 2021</button>
+    </div>
+
+
+    <!-- Image container that will change with the buttons -->
+    <img id="mainImage" src="chart.png" alt="Dog" height="300" width="300">
+    <h2 id="imageCaption">Adopt a Dog</h2>
+
+    <h2>Provide support to these animals by adopting</h2>
+    <img src="dog.png" alt="dog" height="300" width="300">
+    <img src="fish.jpg" alt="fish" height="300" width="300">
+    <img src="cat.jpg" alt="cat" height="300" width="300">
+
+ 
+
+    <footer>COS30045 Data Visualisation</footer>
+
+</body>
+</html>
