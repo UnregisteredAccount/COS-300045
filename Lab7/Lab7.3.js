@@ -1,6 +1,6 @@
 var width = 300;
 var height = 300;
-var margin = { top: 20, right: 20, bottom: 30, left: 40 };
+var margin = { top: 20, right: 100, bottom: 30, left: 40 }; // Increased right margin for legend
 
 var dataset = [
     { apples: 5, oranges: 10, grapes: 22 },
@@ -56,3 +56,30 @@ groups.selectAll("rect")
     .attr("y", function(d) { return yScale(d[1]); })
     .attr("height", function(d) { return yScale(d[0]) - yScale(d[1]); })
     .attr("width", xScale.bandwidth());
+
+// Create a legend
+var legend = svg.selectAll(".legend")
+    .data(keys)
+    .enter()
+    .append("g")
+    .attr("class", "legend")
+    .attr("transform", function(d, i) { 
+        return "translate(" + (width - margin.right + 10) + "," + (20 + i * 20) + ")"; 
+    });
+
+// Add colored rectangles to the legend
+legend.append("rect")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", 18)
+    .attr("height", 18)
+    .attr("fill", function(d, i) {
+        return color(i);
+    });
+
+// Add text labels to the legend
+legend.append("text")
+    .attr("x", 24)
+    .attr("y", 9)
+    .attr("dy", "0.35em")
+    .text(function(d) { return d; });
